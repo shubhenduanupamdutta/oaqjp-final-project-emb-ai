@@ -16,8 +16,6 @@ def detect_emotions() -> str:
 
     """
     text = request.args.get("textToAnalyze", "")
-    if not text.strip():
-        abort(400, "No text provided")
 
     result = emotion_detector(text)
     if result["dominant_emotion"] is None:
