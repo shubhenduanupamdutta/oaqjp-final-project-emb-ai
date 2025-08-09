@@ -1,6 +1,6 @@
 """Flask server for emotion detection."""
 
-from flask import Flask, abort, request
+from flask import Flask, abort, render_template, request
 
 from .EmotionDetection.emotion_detection import emotion_detector
 
@@ -26,6 +26,15 @@ def detect_emotions() -> str:
         f"and 'sadness': {result['sadness']}. The dominant emotion is "
         f"<b>{result['dominant_emotion']}</b>."
     )
+
+
+@app.route("/")
+def render_index_page() -> str:
+    """Render the main application page.
+
+    Initiate the rendering of the main application page over the Flask channel.
+    """
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
