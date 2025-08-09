@@ -1,6 +1,6 @@
 """Flask server for emotion detection."""
 
-from flask import Flask, abort, render_template, request
+from flask import Flask, render_template, request
 
 from EmotionDetection.emotion_detection import emotion_detector
 
