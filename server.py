@@ -20,6 +20,9 @@ def detect_emotions() -> str:
         abort(400, "No text provided")
 
     result = emotion_detector(text)
+    if result["dominant_emotion"] is None:
+        return "<b>Invalid text! Please try again!</b>"
+
     return (
         f"For the given statement, the system response is 'anger': {result['anger']}, "
         f"'disgust': {result['disgust']}, 'fear': {result['fear']}, 'joy': {result['joy']} "

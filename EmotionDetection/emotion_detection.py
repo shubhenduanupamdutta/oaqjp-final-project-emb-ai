@@ -28,7 +28,7 @@ def emotion_detector(text_to_analyze: str) -> dict[str, float | str] | dict[str,
         "dominant_emotion": None,
     }
 
-    if response.status_code != requests.codes.ok:
+    if response.status_code == 400:
         return default_emotions
 
     predictions = json.loads(response.text)["emotionPredictions"]
